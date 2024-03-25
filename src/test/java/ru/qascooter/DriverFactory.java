@@ -10,6 +10,7 @@ public class DriverFactory {
 
     private void initFireFox(){
         WebDriverManager.firefoxdriver().setup();
+        System.setProperty("webdriver.firefox.bin", "src/test/resources/properties/firefox");
         driver = new FirefoxDriver();
     }
     private void initChrome(){

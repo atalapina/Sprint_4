@@ -6,18 +6,17 @@ import org.openqa.selenium.WebDriver;
 //класс страницы заполнения формы заказа_1
 public class OrderPage_1 extends BasePage {
     //поле Имя
-    //private final By selectName = By.xpath("//div[contains(@class,'Order_Form')]//input[@wfd-id='id1']");
-    private final By selectName = By.xpath("/html/body/div/div/div[2]/div[2]/div[1]/input");
+    private final By selectName = By.xpath("(//div[contains(@class,'Order_Form')]//input)[1]");
     //поле Фамилия
-    private final By selectLastName = By.cssSelector("input[wfd-id='id2']");
+    private final By selectLastName = By.xpath("(//div[contains(@class,'Order_Form')]//input)[2]");
     //поле Адрес
-    private final By selectAddress = By.cssSelector("input[wfd-id='id3']");
+    private final By selectAddress = By.xpath("(//div[contains(@class,'Order_Form')]//input)[3]");
     //Список станций метро
-    private final By selectMetroInput = By.xpath("//div[contains(@class,'Order_Form')]//input[@wfd-id='id4']");
+    private final By selectMetroInput = By.xpath("(//div[contains(@class,'Order_Form')]//input)[4]");
     //выбор станции метро
     private final By selectMetroStation = By.xpath("//div[contains(@class,'Order_Form')]//button[contains(@class,'Order_SelectOption')]");
     //поле телефонный номер
-    private final By selectNumberPhone = By.cssSelector("input[wfd-id='id5']");
+    private final By selectNumberPhone = By.xpath("(//div[contains(@class,'Order_Form')]//input)[5]");
     //кнопка Далее
     private final By selectNextButton = By.xpath("//div[contains(@class,'Order_NextButton')]//button");
 

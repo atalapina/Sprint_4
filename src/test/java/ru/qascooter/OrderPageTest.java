@@ -1,6 +1,5 @@
 package ru.qascooter;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,7 +7,7 @@ import ru.qascooter.pageobject.page.*;
 
 @RunWith(Parameterized.class)
 public class OrderPageTest extends BaseTest {
-    private final String selectOrderButton;
+    private final int orderButtonNumber;
     private final String name;
     private final String lastName;
     private final String address;
@@ -19,11 +18,11 @@ public class OrderPageTest extends BaseTest {
     private final boolean canBlack;
     private final boolean canGray;
     private final String comment;
-    public OrderPageTest(String selectOrderButton, String name, String lastName, String address, int metro, String numberPhone,
+    public OrderPageTest(int orderButtonNumber, String name, String lastName, String address, int metro, String numberPhone,
                          String whenBringScooter, int rentalPeriod, boolean canBlack, boolean canGray,
                          String comment
                          ) {
-        this.selectOrderButton = selectOrderButton;
+        this.orderButtonNumber = orderButtonNumber;
         this.name = name;
         this.lastName = lastName;
         this.address = address;
@@ -39,16 +38,16 @@ public class OrderPageTest extends BaseTest {
     @Parameterized.Parameters
     public static Object[][] getCredentials(){
         return new Object[][]{
-                {"//div[contains(@class,'Header_Nav')]/Button[contains(@class,'Button_Button')]", "Иван","Иванов","Москва",50,"+79280445563","26.03.2024",4,true,false,"комментарий"},
-                {"//div[contains(@class,'Home_FinishButton')]/Button[contains(@class,'Button_Button')]", "Петр","Петров","Казань",200,"+79280445500","27.03.2024",6,true,true,"комментарий 2"},
+                {1, "Иван","Иванов","Москва",50,"+79280445563","26.03.2024",4,true,false,"комментарий"},
+                {2, "Петр","Петров","Казань",200,"+79280445500","27.03.2024",6,true,true,"комментарий 2"},
         };
     }
     @Test
-    public void сreateОrder() {
+    public void createOrder() {
         
         HeadPage objheadPage = new HeadPage(super.driver);
 
-        OrderPage_1 orderPage1 = objheadPage.clickOrderButton(this.selectOrderButton)
+        OrderPage_1 orderPage1 = objheadPage.clickOrderButton(this.orderButtonNumber)
                 .setName(this.name)
                 .setLastName(this.lastName)
                 .setAddress(this.address)
